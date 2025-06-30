@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Wireless Headphones | ShopEase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product-details.css">
+</head>
+<body>
+    <!-- Header (Consistent with other pages) -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>ShopEase</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="ecommerce.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-details-page">
+        <div class="container">
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb-nav">
+                <ol>
+                    <li><a href="ecommerce.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="products.html?category=electronics">Electronics</a></li>
+                    <li>Premium Wireless Headphones</li>
+                </ol>
+            </nav>
+
+            <!-- Product Main Section -->
+            <div class="product-main">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img src="../Image/tech/9.jpg" alt="Premium Wireless Headphones" id="mainImage">
+                    </div>
+                    <!-- <div class="thumbnail-grid">
+                        <div class="thumbnail active" onclick="changeImage('..Image/tech/4.jpg')">
+                            <img src="../Image/tech/4.jpg" alt="Headphones Thumbnail 1">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('..Image/tech/4.jpg')">
+                            <img src="../Image/tech/4.jpg" alt="Headphones Thumbnail 2">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('..Image/tech/4.jpg')">
+                            <img src="../Image/tech/4.jpg" alt="Headphones Thumbnail 3">
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h1>Premium Wireless Headphones</h1>
+                    <div class="product-meta">
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="review-count">(42 reviews)</span>
+                            <a href="#reviews" class="see-all">See all reviews</a>
+                        </div>
+                        <div class="sku">SKU: HP-2025-BLK</div>
+                        <div class="availability in-stock">In Stock</div>
+                    </div>
+
+                    <div class="price">
+                        <span class="current-price">$199.99</span>
+                        <span class="original-price">$249.99</span>
+                        <span class="discount">20% OFF</span>
+                    </div>
+
+                    <div class="product-description">
+                        <p>Experience crystal-clear sound with our premium wireless headphones. Featuring active noise cancellation, 30-hour battery life, and comfortable over-ear design for extended listening sessions.</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Active Noise Cancellation</li>
+                            <li><i class="fas fa-check"></i> 30-hour Battery Life</li>
+                            <li><i class="fas fa-check"></i> Built-in Microphone</li>
+                            <li><i class="fas fa-check"></i> Bluetooth 5.0</li>
+                        </ul>
+                    </div>
+
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button class="qty-btn" onclick="updateQuantity(-1)">-</button>
+                            <input type="number" value="1" min="1" id="quantity">
+                            <button class="qty-btn" onclick="updateQuantity(1)">+</button>
+                        </div>
+                        <button class="btn btn-primary btn-add-to-cart" onclick="addToCart()">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="far fa-heart"></i> Add to Wishlist
+                        </button>
+                    </div>
+
+                    <div class="product-tags">
+                        <span>Category: <a href="products.html?category=electronics">Electronics</a></span>
+                        <span>Tags: <a href="#">Headphones</a>, <a href="#">Wireless</a>, <a href="#">Audio</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <ul class="tabs-nav">
+                    <li class="active" data-tab="description">Description</li>
+                    <li data-tab="specifications">Specifications</li>
+                    <li data-tab="reviews" id="reviews-tab">Reviews (42)</li>
+                </ul>
+
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="description">
+                        <h3>Product Description</h3>
+                        <p>Our Premium Wireless Headphones deliver exceptional sound quality with advanced noise cancellation technology. Perfect for music lovers and professionals who demand the best audio experience.</p>
+                        <p>The ergonomic design ensures comfort during extended use, while the 30-hour battery life means you can enjoy your music all day long. The built-in microphone allows for clear calls, and Bluetooth 5.0 provides a stable connection.</p>
+                    </div>
+
+                    <div class="tab-pane" id="specifications">
+                        <h3>Technical Specifications</h3>
+                        <table class="specs-table">
+                            <tr>
+                                <th>Brand</th>
+                                <td>AudioPro</td>
+                            </tr>
+                            <tr>
+                                <th>Model</th>
+                                <td>HP-2025</td>
+                            </tr>
+                            <tr>
+                                <th>Connectivity</th>
+                                <td>Bluetooth 5.0</td>
+                            </tr>
+                            <tr>
+                                <th>Battery Life</th>
+                                <td>30 hours</td>
+                            </tr>
+                            <tr>
+                                <th>Noise Cancellation</th>
+                                <td>Active Noise Cancellation (ANC)</td>
+                            </tr>
+                            <tr>
+                                <th>Weight</th>
+                                <td>285g</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="tab-pane" id="reviews">
+                        <h3>Customer Reviews</h3>
+                        <div class="review-summary">
+                            <div class="average-rating">
+                                <div class="average">4.7</div>
+                                <div class="stars">★★★★★</div>
+                                <div class="total-reviews">42 reviews</div>
+                            </div>
+                            <div class="rating-bars">
+                                <div class="rating-bar">
+                                    <span class="stars">5 ★</span>
+                                    <div class="bar-container">
+                                        <div class="bar" style="width: 75%"></div>
+                                    </div>
+                                    <span class="count">32</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="stars">4 ★</span>
+                                    <div class="bar-container">
+                                        <div class="bar" style="width: 15%"></div>
+                                    </div>
+                                    <span class="count">6</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="stars">3 ★</span>
+                                    <div class="bar-container">
+                                        <div class="bar" style="width: 5%"></div>
+                                    </div>
+                                    <span class="count">2</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="stars">2 ★</span>
+                                    <div class="bar-container">
+                                        <div class="bar" style="width: 3%"></div>
+                                    </div>
+                                    <span class="count">1</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="stars">1 ★</span>
+                                    <div class="bar-container">
+                                        <div class="bar" style="width: 2%"></div>
+                                    </div>
+                                    <span class="count">1</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-form">
+                            <h4>Write a Review</h4>
+                            <form id="reviewForm">
+                                <div class="form-group">
+                                    <label>Your Rating</label>
+                                    <div class="star-rating">
+                                        <i class="far fa-star" data-rating="1"></i>
+                                        <i class="far fa-star" data-rating="2"></i>
+                                        <i class="far fa-star" data-rating="3"></i>
+                                        <i class="far fa-star" data-rating="4"></i>
+                                        <i class="far fa-star" data-rating="5"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reviewText">Your Review</label>
+                                    <textarea id="reviewText" rows="5"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Review</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <section class="related-products">
+                <h2>You May Also Like</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="../Image/tech/10.jpg" alt="Electric Kettle">
+                        <div class="product-info">
+                            <h3>Electric Kettle</h3>
+                            <div class="price">$39.99</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline">View Details</button>
+                                <button class="btn btn-sm btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="../Image/tech/3.jpg" alt="Smart Phone">
+                        <div class="product-info">
+                            <h3>Smart Phone</h3>
+                            <div class="price">$232.99</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline">View Details</button>
+                                <button class="btn btn-sm btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="../Image/tech/8.jpg" alt="Smart Watch">
+                        <div class="product-info">
+                            <h3>Smart Watch</h3>
+                            <div class="price">$149.99</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline">View Details</button>
+                                <button class="btn btn-sm btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer (Consistent with other pages) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ShopEase</h3>
+                    <p>Your one-stop shop for all your needs</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ShopEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="product-details.js"></script>
+</body>
+</html>

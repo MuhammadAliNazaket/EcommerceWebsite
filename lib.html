@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .book-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .book-form input, .book-form select, .book-form button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .book-form button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .book-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .filters {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .filters input, .filters select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .actions button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .actions .edit {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .actions .edit:hover {
+            background-color: #e0a800;
+        }
+
+        .actions .delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .actions .delete:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Library Management System</h1>
+
+        <div class="book-form">
+            <input type="text" id="title" placeholder="Book Title">
+            <input type="text" id="author" placeholder="Author">
+            <select id="genre">
+                <option value="">Select Genre</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+            </select>
+            <input type="number" id="year" placeholder="Year">
+            <button onclick="addBook()">Add Book</button>
+        </div>
+
+        <div class="filters">
+            <input type="text" id="search" placeholder="Search by Title or Author" oninput="searchBooks()">
+            <select id="filterGenre" onchange="filterBooks()">
+                <option value="">All Genres</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+            </select>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Year</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="bookList"></tbody>
+        </table>
+    </div>
+
+    <script>
+        let books = JSON.parse(localStorage.getItem('books')) || [];
+
+        function saveBooks() {
+            localStorage.setItem('books', JSON.stringify(books));
+        }
+
+        function renderBooks(filterGenre = '', searchQuery = '') {
+            const bookList = document.getElementById('bookList');
+            bookList.innerHTML = '';
+
+            const filteredBooks = books.filter(book => {
+                const matchesGenre = filterGenre ? book.genre === filterGenre : true;
+                const matchesSearch = book.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      book.author.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesGenre && matchesSearch;
+            });
+
+            filteredBooks.forEach((book, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${book.title}</td>
+                    <td>${book.author}</td>
+                    <td>${book.genre}</td>
+                    <td>${book.year}</td>
+                    <td class="actions">
+                        <button class="edit" onclick="editBook(${index})">Edit</button>
+                        <button class="delete" onclick="deleteBook(${index})">Delete</button>
+                    </td>
+                `;
+
+                bookList.appendChild(row);
+            });
+        }
+
+        function addBook() {
+            const title = document.getElementById('title').value.trim();
+            const author = document.getElementById('author').value.trim();
+            const genre = document.getElementById('genre').value;
+            const year = document.getElementById('year').value;
+
+            if (title && author && genre && year) {
+                books.push({ title, author, genre, year });
+                saveBooks();
+                renderBooks();
+
+                document.getElementById('title').value = '';
+                document.getElementById('author').value = '';
+                document.getElementById('genre').value = '';
+                document.getElementById('year').value = '';
+            }
+        }
+
+        function editBook(index) {
+            const book = books[index];
+            const newTitle = prompt('Edit Title:', book.title);
+            const newAuthor = prompt('Edit Author:', book.author);
+            const newGenre = prompt('Edit Genre:', book.genre);
+            const newYear = prompt('Edit Year:', book.year);
+
+            if (newTitle && newAuthor && newGenre && newYear) {
+                books[index] = { title: newTitle, author: newAuthor, genre: newGenre, year: newYear };
+                saveBooks();
+                renderBooks();
+            }
+        }
+
+        function deleteBook(index) {
+            books.splice(index, 1);
+            saveBooks();
+            renderBooks();
+        }
+
+        function searchBooks() {
+            const searchQuery = document.getElementById('search').value;
+            renderBooks(document.getElementById('filterGenre').value, searchQuery);
+        }
+
+        function filterBooks() {
+            const filterGenre = document.getElementById('filterGenre').value;
+            renderBooks(filterGenre, document.getElementById('search').value);
+        }
+
+        renderBooks();
+    </script>
+</body>
+</html>

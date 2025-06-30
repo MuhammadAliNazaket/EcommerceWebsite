@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | ShopEase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <!-- Header (Same as index.html) -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>ShopEase</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="ecommerce.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="products-page">
+        <div class="container">
+            <!-- Page Header with Breadcrumbs -->
+            <div class="page-header">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="ecommerce.html">Home</a></li>
+                        <li class="breadcrumb-item active">Products</li>
+                    </ol>
+                </nav>
+                <h1>Our Products</h1>
+            </div>
+
+            <!-- Product Filters -->
+            <div class="product-filters">
+                <div class="filter-group">
+                    <label for="categoryFilter">Category:</label>
+                    <select id="categoryFilter" class="form-select">
+                        <option value="all">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="home">Home</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sortBy">Sort By:</label>
+                    <select id="sortBy" class="form-select">
+                        <option value="default">Default</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name-asc">Name: A-Z</option>
+                        <option value="name-desc">Name: Z-A</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="products-grid" id="productsGrid">
+            <div>
+                    <div class="product-card">
+                        <img src="../Image/tech/1.jpg" alt="Product Image">
+                        <h3>Iphone X</h3>
+                        <p class="price">$88.99</p>
+                        <p class="description">Experience best-in-class performance with the iPhone X. Featuring.</p>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+          
+                    <div class="product-card">
+                        <img src="../Image/book/1.png" alt="Product Image">
+                        <h3>Iphone X</h3>
+                        <p class="price">$20.99</p>
+                        <p class="description">A thrilling mystery novel that keeps you on the edge of your seat.</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+            
+            </div>
+            <div>
+                    <div class="product-card">
+                        <img src="../Image/cloth/1.jpg" alt="Product Image">
+                        <h3>Iphone X</h3>
+                        <p class="price">$12.99</p>
+                        <p class="description">A stylish cotton t-shirt for everyday wear.</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+            
+            </div>
+        
+            <div>
+                    <div class="product-card">
+                        <img src="../Image/interior/4.jpg" alt="Product Image">
+                        <h3>Iphone X</h3>
+                        <p class="price">$9.99</p>
+                        <p class="description"> Experience best Home selling products</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+            
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="btn btn-outline" id="prevPage">Previous</button>
+                <span class="page-info">Page <span id="currentPage">1</span> of <span id="totalPages">3</span></span>
+                <button class="btn btn-outline" id="nextPage">Next</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ShopEase</h3>
+                    <p>Your one-stop shop for all your needs</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="ecommerce.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ShopEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+</body>
+</html>
